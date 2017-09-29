@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Scrapes NPR and returns the day's top news stories"
   spec.description   = "Scrapes NPR and lists today's top news articles"
-  spec.homepage      = "www.learn.co"
+  spec.homepage      = "http://learn.co"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
