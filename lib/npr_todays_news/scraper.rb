@@ -9,12 +9,20 @@ class NprTodaysNews::Scraper
   def scrape
     scrape_featured_stories
     #scrape_non_featured_stories
-    #scrape_news_story
     #@news_list #we want an instance of news list (all of today's stories)
   end
 
   def scrape_featured_stories
-    @doc.css("div.featured .featured-3-up .item")
+    stories = @doc.css("div.featured-3-up .item")
+    stories.each do |npr_story|
+      binding.pry
+      story = Story.new
+      story.title = npr_story.css("h2.title").text.strip
+      story.teaser = npr_story.css("p.teaser").text.strip
+      story.url = npr_story.css("h2 a").attribute("href").value
+
+      @news_list.add_story(story)
+    end
   end
   #
   # def scrape_non_featured_stories
