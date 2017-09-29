@@ -1,5 +1,11 @@
 class NprTodaysNews::CLI
   def run
-    puts "This is my NprTodaysNews::CLI file! "
+    get_stories
   end
+
+  def get_stories
+    puts "These are today's top stories on NPR:!"
+    html = open()
+  end
+
 end
