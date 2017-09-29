@@ -13,9 +13,8 @@ class NprTodaysNews::Scraper
   end
 
   def scrape_featured_stories
-    stories = @doc.css("div.featured-3-up .item")
-    stories.each do |npr_story|
-      binding.pry
+    npr_stories = @doc.css("div.featured-3-up .item")
+    npr_stories.each do |npr_story|
       story = Story.new
       story.title = npr_story.css("h2.title").text.strip
       story.teaser = npr_story.css("p.teaser").text.strip
@@ -23,6 +22,7 @@ class NprTodaysNews::Scraper
 
       @news_list.add_story(story)
     end
+    @news_list
   end
   #
   # def scrape_non_featured_stories
