@@ -8,8 +8,6 @@ class NprTodaysNews::Scraper
 
   def scrape
     scrape_featured_stories
-    #scrape_non_featured_stories
-    #@news_list #we want an instance of news list (all of today's stories)
   end
 
   def scrape_featured_stories
@@ -24,9 +22,5 @@ class NprTodaysNews::Scraper
     end
     @news_list
   end
-  #
-  # def scrape_non_featured_stories
-  #   @doc.css("div.list-overflow .item")
-  # end
-
+  
 end
