@@ -5,7 +5,7 @@ class NprTodaysNews::CLI
 
   def get_stories
     puts "These are today's top stories on NPR:!"
-    NprTodaysNews::Scraper.scrape
+    NprTodaysNews::Scraper.new.scrape
   end
 
 end

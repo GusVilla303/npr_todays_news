@@ -1,6 +1,6 @@
 class NprTodaysNews::Scraper
 
-  def self.scrape
+  def scrape
     html = open("http://www.npr.org/sections/news/")
     @doc = Nokogiri::HTML(html)
     puts @doc
