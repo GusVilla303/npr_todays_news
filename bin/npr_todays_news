@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+puts "Hello World!"
+
 require_relative "../config/environment"
 
 NprTodaysNews::CLI.new.run
