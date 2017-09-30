@@ -1,16 +1,16 @@
 class NprTodaysNews::CLI
   def run
-    get_stories
+    get_newslist
+    print_stories
   end
 
-  def get_stories
+  def get_newslist
     puts "These are today's top stories on NPR:"
-    news_list = NprTodaysNews::Scraper.new.scrape
-    print_stories(news_list)
+    NprTodaysNews::Scraper.new.scrape
   end
 
-  def print_stories(news_list)
-    news_list.stories.each.with_index(1) do |story, index|
+  def print_stories
+    get_newslist.stories.each.with_index(1) do |story, index|
       puts "#{index}. #{story.title} -- #{story.teaser}"
     end
   end
