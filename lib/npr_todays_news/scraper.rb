@@ -6,9 +6,9 @@ class NprTodaysNews::Scraper
     @doc = Nokogiri::HTML(html)
   end
 
-  def scrape
-    scrape_featured_stories
-  end
+  # def scrape
+  #   scrape_featured_stories
+  # end
 
   def scrape_featured_stories
     npr_stories = @doc.css("div.featured-3-up .item")
@@ -22,5 +22,11 @@ class NprTodaysNews::Scraper
     end
     @news_list
   end
-  
+
+  def scrape_selected_story(url)
+    @news_list
+    story_doc = Nokogiri::HTML(open(url))
+    binding.pry
+  end
+
 end
