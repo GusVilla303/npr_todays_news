@@ -17,10 +17,4 @@ class NewsList
     @stories
   end
 
-  # def print_stories
-  #   @stories.each.with_index(1) do |story, index|
-  #     puts "#{index}. #{story}"
-  #   end
-  # end
-
 end

@@ -39,25 +39,5 @@ class NprTodaysNews::CLI
     puts ""
     puts "To read a story in your browser, type (#1-3) or 'exit' to quit."
   end
-  # def get_user_input
-  #   puts "Please select the story number (#1-3) or type 'exit' to quit."
-  #   input = gets.strip.to_i
-  #
-  #   if input == 1
-  #     url = @scraper.scrape_selected_story(input)#.stories[0].url
-  #
-  #   elsif input == 2
-  #     url = @scraper.scrape_selected_story(input)#.stories[1].url
-  #     puts "you chose Story #2"
-  #   elsif input == 3
-  #     url = @scraper.scrape_selected_story(input)#.stories[2].url
-  #     puts "Story 3"
-  #   else
-  #     exit
-  #   end
-
-    #
-  #end
-
-
+  
 end
