@@ -14,6 +14,8 @@ class NprTodaysNews::Scraper
       story.teaser = npr_story.css("p.teaser").text.strip
       story.url = npr_story.css("h2 a").attribute("href").value
 
+      story.save
+
       @news_list.add_story(story)
     end
     @news_list
