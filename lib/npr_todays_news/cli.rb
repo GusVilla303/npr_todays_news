@@ -30,7 +30,9 @@ class NprTodaysNews::CLI
 
   def list_stories
     @news_list.stories.each.with_index(1) do |story, index|
-      puts "#{index}. #{story.title}"  #-- #{story.teaser}
+      puts "#{index}. #{story.title}:"
+      puts "#{story.teaser}"
+      puts ""
     end
     options_output
   end
@@ -39,5 +41,5 @@ class NprTodaysNews::CLI
     puts ""
     puts "To read a story in your browser, type (#1-3) or 'exit' to quit."
   end
-  
+
 end
