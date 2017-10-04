@@ -21,9 +21,18 @@ class NprTodaysNews::CLI
       when "exit"
         puts "Goodbye!"
         exit
-      else
+      when "1"
         system("open #{@news_list.stories[input.to_i-1].url}")
         options_output
+      when "2"
+        system("open #{@news_list.stories[input.to_i-1].url}")
+        options_output
+      when "3"
+        system("open #{@news_list.stories[input.to_i-1].url}")
+        options_output
+      else
+        puts ""
+        puts "***   Invalid input, type (#1-3) or 'exit' to quit.   ***"
       end
     end
   end
