@@ -24,7 +24,21 @@ class NprTodaysNews::Scraper
   def scrape_individual_story
     story_text = @doc.css("div.storytext p")
     p_elements = story_text.select { |element| element.name == "p" }
-    paragraphs = p_elements.collect { |p_tag| p_tag.text }
-    puts paragraphs
+    paragraph_text = p_elements.collect { |p_tag| p_tag.text }
+    add_whitespace
+    print_text(paragraph_text)
+  end
+
+  def add_whitespace
+    puts ""
+    puts "***  Here is your selected story:   ****"
+    puts ""
+  end
+
+  def print_text(text)
+    text[1..-1].each do |paragraph|
+      puts "#{paragraph}\n"
+      puts ""
+    end
   end
 end

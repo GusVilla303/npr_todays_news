@@ -29,10 +29,14 @@ class NprTodaysNews::CLI
         scraper.scrape_individual_story
         options_output
       when "2"
-        system("open #{@news_list.stories[input.to_i-1].url}")
+        url = @news_list.stories[input.to_i-1].url
+        scraper = NprTodaysNews::Scraper.new(url)
+        scraper.scrape_individual_story
         options_output
       when "3"
-        system("open #{@news_list.stories[input.to_i-1].url}")
+        url = @news_list.stories[input.to_i-1].url
+        scraper = NprTodaysNews::Scraper.new(url)
+        scraper.scrape_individual_story
         options_output
       else
         puts ""
