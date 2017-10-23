@@ -1,5 +1,3 @@
-require 'pry'
-
 class NprTodaysNews::Scraper
 
   def initialize(url="http://www.npr.org/sections/news/")
