@@ -24,20 +24,11 @@ class NprTodaysNews::CLI
         puts "Goodbye!"
         exit
       when "1"
-        url = @news_list.stories[input.to_i-1].url
-        scraper = NprTodaysNews::Scraper.new(url)
-        scraper.scrape_individual_story
-        options_output
+        retrieve_story(input)
       when "2"
-        url = @news_list.stories[input.to_i-1].url
-        scraper = NprTodaysNews::Scraper.new(url)
-        scraper.scrape_individual_story
-        options_output
+        retrieve_story(input)
       when "3"
-        url = @news_list.stories[input.to_i-1].url
-        scraper = NprTodaysNews::Scraper.new(url)
-        scraper.scrape_individual_story
-        options_output
+        retrieve_story(input)
       else
         puts ""
         puts "***   Invalid input, type (#1-3) or 'exit' to quit.   ***"
@@ -57,6 +48,13 @@ class NprTodaysNews::CLI
   def options_output
     puts ""
     puts "To read a story in your browser, type (#1-3) or 'exit' to quit."
+  end
+
+  def retrieve_story(input)
+    url = @news_list.stories[input.to_i-1].url
+    scraper = NprTodaysNews::Scraper.new(url)
+    scraper.scrape_individual_story
+    options_output
   end
 
 end
