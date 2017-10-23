@@ -1,3 +1,5 @@
+require 'pry'
+
 class NprTodaysNews::CLI
 
   def initialize
@@ -22,7 +24,9 @@ class NprTodaysNews::CLI
         puts "Goodbye!"
         exit
       when "1"
-        system("open #{@news_list.stories[input.to_i-1].url}")
+        url = @news_list.stories[input.to_i-1].url
+        scraper = NprTodaysNews::Scraper.new(url)
+        scraper.scrape_individual_story
         options_output
       when "2"
         system("open #{@news_list.stories[input.to_i-1].url}")

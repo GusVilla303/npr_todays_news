@@ -1,12 +1,14 @@
+require 'pry'
+
 class NprTodaysNews::Scraper
 
-  def initialize
-    @news_list = NewsList.new
-    html = open("http://www.npr.org/sections/news/")
-    @doc = Nokogiri::HTML(html)
+  def initialize(url="http://www.npr.org/sections/news/")
+    @url = url
+    @doc = Nokogiri::HTML(open(@url))
   end
 
   def scrape_featured_stories
+    news_list = NewsList.new
     npr_stories = @doc.css("div.featured-3-up .item")
     npr_stories.each do |npr_story|
       story = Story.new
@@ -16,9 +18,15 @@ class NprTodaysNews::Scraper
 
       story.save
 
-      @news_list.add_story(story)
+      news_list.add_story(story)
     end
-    @news_list
+    news_list
   end
 
+  def scrape_individual_story
+    story_text = @doc.css("div.storytext p")
+    p_elements = story_text.select { |element| element.name == "p" }
+    paragraphs = p_elements.collect { |p_tag| p_tag.text }
+    puts paragraphs
+  end
 end
