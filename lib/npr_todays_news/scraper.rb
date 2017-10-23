@@ -25,11 +25,11 @@ class NprTodaysNews::Scraper
     story_text = @doc.css("div.storytext p")
     p_elements = story_text.select { |element| element.name == "p" }
     paragraph_text = p_elements.collect { |p_tag| p_tag.text }
-    add_whitespace
+    story_header
     print_text(paragraph_text)
   end
 
-  def add_whitespace
+  def story_header
     puts ""
     puts "      ***  Here is your selected story:   ***      "
     puts ""
