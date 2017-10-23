@@ -31,7 +31,7 @@ class NprTodaysNews::Scraper
 
   def add_whitespace
     puts ""
-    puts "***  Here is your selected story:   ****"
+    puts "      ***  Here is your selected story:   ***      "
     puts ""
   end
 
